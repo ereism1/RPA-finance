@@ -1,0 +1,5 @@
+ID,DATA,DESCRICAO,VALOR,TIPO,STATUS
+1,Thu Jun 04 2026 00:00:00 GMT-0300 (Horário Padrão de Brasília),PIX Cliente A,500.00,RECEITA,ATIVO
+2,Fri Jun 05 2026 00:00:00 GMT-0300 (Horário Padrão de Brasília),teste,8624.00,RECEITA,ATIVO
+3,Thu Jun 04 2026 00:00:00 GMT-0300 (Horário Padrão de Brasília),test,100.00,DESPESA,ATIVO
+4,Mon Jun 01 2026 00:00:00 GMT-0300 (Horário Padrão de Brasília),teste,50.00,DESPESA,ATIVO
