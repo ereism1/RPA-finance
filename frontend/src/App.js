@@ -64,6 +64,28 @@ useEffect(() => {
 }, []);
 
 
+   const executarConciliacao = async () => {
+
+  try {
+
+    await api.post('/conciliar');
+
+    await carregarMovimentacoes();
+
+    alert('Conciliação concluída');
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert('Erro ao conciliar');
+
+  }
+
+};
+
+
+
   return (
     <div style={{ padding: '20px' }}>
       <h1>Sistema Financeiro</h1>
@@ -124,6 +146,11 @@ useEffect(() => {
         <button type="submit">
           Cadastrar
         </button>
+
+        <button onClick={executarConciliacao}>
+          Conciliar
+        </button>
+
       </form>
     
     <hr />

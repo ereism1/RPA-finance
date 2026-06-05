@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 from conexao import conectar
 
@@ -14,9 +15,11 @@ df_sistema = pd.read_sql(
 
 print(df_sistema)
 
-df_banco = pd.read_csv(
-    'extratos/extrato_banco.csv'
-)
+BASE_DIR = Path(__file__).resolve().parent
+
+arquivo_csv = BASE_DIR / 'extratos' / 'extrato_banco.csv'
+
+df_banco = pd.read_csv(arquivo_csv)
 
 print(df_banco)
 

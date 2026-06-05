@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const path = require('path');
-
+const { exec } = require('child_process');
 const app = express();
 
 app.use(cors());
@@ -174,5 +174,36 @@ app.get('/exportar', async (req, res) => {
     });
 
   }
+
+});
+
+app.post('/conciliar', (req, res) => {
+
+  exec(
+    '../conciliacao/venv/bin/python ../conciliacao/conciliador.py',
+    (error, stdout, stderr) => {
+
+      console.log('STDOUT:', stdout);
+      console.log('STDERR:', stderr);
+
+      if (error) {
+
+        console.log('ERROR:', error);
+
+        return res.status(500).json({
+          erro: error.message,
+          stderr
+        });
+
+      }
+
+      res.json({
+        sucesso: true,
+        stdout,
+        stderr
+      });
+
+    }
+  );
 
 });
